@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# HRnet Date Picker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Reusable React date picker component
 
-## Available Scripts
+### Installation
+---
 
-In the project directory, you can run:
+The package can be installed via [npm](https://github.com/npm/cli):
 
-### `npm start`
+```
+npm install react-datepicker --save
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Or via [yarn](https://github.com/yarnpkg/yarn):
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+yarn add react-datepicker
+```
 
-### `npm test`
+### Configuration
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To use the date picker component, simply use the code bellow:
+```js
+    <DatePicker 
+        label="Date"
+        name='date'
+        onChange={(date, inputName) => setDate({[inputName]: date})}
+    />
+```
 
-### `npm run build`
+`label` is the label of the input that will show on the page
+`name` is the name of the input
+`onChange` returns the date selected by the user
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Get input name
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In case you need to retrieve the name of the input, for example if you need to add this date to and object, you can use the code bellow:
+```js
+    <DatePicker 
+        label="Date"
+        name='date'
+        onChange={(date, inputName) => setFormData({...formData, [inputName]: date})}
+    />
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Here you can use the second argument returned by `onChange` the specify the name of the date in an object
 
-### `npm run eject`
+### Compatibility
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The date picker component has been tested and is compatible with React 18 and newer versions.
+This component has not been tested on older versions, it may not work properly with them.

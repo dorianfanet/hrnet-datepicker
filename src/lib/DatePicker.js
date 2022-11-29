@@ -242,7 +242,8 @@ export default function DatePicker({ label, name, whiteBackground, onChange }) {
     }
   }
 
-  function handleToday(){
+  function handleToday(e){
+    e.preventDefault()
     setYear(timestamp.getFullYear())
     setMonth(timestamp.getMonth())
   }
@@ -268,7 +269,7 @@ export default function DatePicker({ label, name, whiteBackground, onChange }) {
     const date = new Date(year, month, e.target.textContent)
     setInputDate(`${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`)
     setActive(false)
-    onChange(inputDate, name)
+    onChange(date, name)
   }
 
   return daysOfMonth && (
