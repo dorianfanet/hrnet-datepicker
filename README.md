@@ -8,13 +8,13 @@ Reusable React date picker component
 The package can be installed via [npm](https://github.com/npm/cli):
 
 ```
-npm install react-datepicker --save
+npm install hrnet-datepicker --save
 ```
 
 Or via [yarn](https://github.com/yarnpkg/yarn):
 
 ```
-yarn add react-datepicker
+yarn add hrnet-datepicker
 ```
 
 ### Configuration

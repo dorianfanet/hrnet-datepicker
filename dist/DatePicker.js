@@ -100,7 +100,8 @@ function DatePicker(_ref) {
       setMonth(month - 1);
     }
   }
-  function handleToday() {
+  function handleToday(e) {
+    e.preventDefault();
     setYear(timestamp.getFullYear());
     setMonth(timestamp.getMonth());
   }
