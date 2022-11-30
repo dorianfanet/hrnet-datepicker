@@ -62,6 +62,14 @@ const List = styled.ul`
   }
 `
 
+/**
+ * Select component
+ * @param {number} defaultData - Default data to display
+ * @param {function} sendData - Handler for change in selected value
+ * @param {String} dataSource - Source of select data
+ * @param {object} customStyle - Object for adding custom styling to the component
+ * @returns 
+ */
 export default function Select({ defaultData, sendData, dataSource, customStyle }){
   const ref = useRef()
 

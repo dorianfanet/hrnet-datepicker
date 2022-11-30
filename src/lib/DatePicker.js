@@ -183,7 +183,13 @@ const CalendarContainer = styled.div`
 
 const timestamp = new Date()
 
-export default function DatePicker({ label, name, whiteBackground, onChange }) {
+/**
+ * DatePicker component
+ * @param {String} label - Displayed label of the input 
+ * @param {String} name - Name of the input
+ * @param {function} onChamge - Handler for value change
+ */
+export default function DatePicker({ label, name, onChange }) {
   const ref = useRef()
 
   const [daysOfMonth, setDaysOfMonth] = useState([])
@@ -257,14 +263,6 @@ export default function DatePicker({ label, name, whiteBackground, onChange }) {
     setYear(year - 1)
   }
 
-  function handleActive(){
-    if(active){
-      setActive(false)
-    } else {
-      setActive(true)
-    }
-  }
-
   function handleDayClick(e){
     const date = new Date(year, month, e.target.textContent)
     setInputDate(`${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`)
@@ -276,7 +274,7 @@ export default function DatePicker({ label, name, whiteBackground, onChange }) {
     <Container>
       <InputContainer>
         <label htmlFor={name}>{label}</label>
-        <input id={name} type='date' value={inputDate} onChange={(e) => console.log(e)} onClick={handleActive}/>
+        <input id={name} type='date' value={inputDate} onChange={(e) => console.log(e)} onClick={() => {setActive(!active)}}/>
       </InputContainer>
       <CalendarContainer className={active ? 'active' : ''} ref={ref}>
         <div className='header'>

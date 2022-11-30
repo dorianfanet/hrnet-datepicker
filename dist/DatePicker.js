@@ -29,10 +29,16 @@ var CalendarContainer = _styledComponents.default.div.withConfig({
   componentId: "sc-1hg4lhw-2"
 })(["padding:20px;border-radius:10px;border:2px solid var(--mainColor);background-color:white;display:none;position:absolute;z-index:50;width:400px;&.active{display:block;}& ul.table-header{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;list-style-type:none;padding:0;position:relative;opacity:.6;z-index:-1;& li{text-align:center;color:var(--mainColor);}&::before{content:'';position:absolute;width:100%;height:2px;bottom:-12px;background-color:var(--mainColor);border-radius:5px;}}& div.header{display:flex;width:100%;height:50px;justify-content:space-between;align-items:center;& div.date{display:flex;flex-direction:column;align-items:center;position:absolute;left:50%;transform:translateX(-50%);& p{margin:0;color:var(--mainColor);}}& div.button-container{display:flex;justify-content:flex-end;gap:10px;&.prev{justify-content:flex-start;}& button{width:35px;height:35px;display:grid;place-content:center;border:0;padding:10px;margin:0;border-radius:50%;cursor:pointer;background-color:var(--mainColor);& svg{height:15px;fill:var(--lightGreen);}}}}& div.days-container{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;& div.day{border-radius:5px;padding:10px 0;color:var(--mainColor);text-align:center;cursor:pointer;transition:all 200ms ease;&.today{background-color:var(--lightGreen);outline:2px solid var(--mainColor);}&:hover{background-color:#e4f6c7;}&.other-month{opacity:.5;}}}"]);
 var timestamp = new Date();
+
+/**
+ * DatePicker component
+ * @param {String} label - Displayed label of the input 
+ * @param {String} name - Name of the input
+ * @param {function} onChamge - Handler for value change
+ */
 function DatePicker(_ref) {
   var label = _ref.label,
     name = _ref.name,
-    whiteBackground = _ref.whiteBackground,
     onChange = _ref.onChange;
   var ref = (0, _react.useRef)();
   var _useState = (0, _react.useState)([]),
@@ -113,13 +119,6 @@ function DatePicker(_ref) {
     e.preventDefault();
     setYear(year - 1);
   }
-  function handleActive() {
-    if (active) {
-      setActive(false);
-    } else {
-      setActive(true);
-    }
-  }
   function handleDayClick(e) {
     var date = new Date(year, month, e.target.textContent);
     setInputDate("".concat(date.getFullYear(), "-").concat(('0' + (date.getMonth() + 1)).slice(-2), "-").concat(('0' + date.getDate()).slice(-2)));
@@ -138,7 +137,9 @@ function DatePicker(_ref) {
         onChange: function onChange(e) {
           return console.log(e);
         },
-        onClick: handleActive
+        onClick: function onClick() {
+          setActive(!active);
+        }
       })]
     }), /*#__PURE__*/(0, _jsxRuntime.jsxs)(CalendarContainer, {
       className: active ? 'active' : '',

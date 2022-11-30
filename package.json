@@ -1,6 +1,15 @@
 {
   "name": "hrnet-datepicker",
-  "version": "0.4.2",
+  "author": "dorianfanet",
+  "description": "Reusable React date picker",
+  "version": "0.4.3",
+  "keywords": [
+    "react",
+    "datepicker",
+    "calendar",
+    "date",
+    "react-component"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

@@ -19,6 +19,15 @@ var List = _styledComponents.default.ul.withConfig({
   displayName: "Select__List",
   componentId: "sc-197a9j6-1"
 })(["position:absolute;top:10px;left:50%;width:fit-content;transform:translateX(-50%);list-style-type:none;padding:0;background-color:white;padding:.4em;color:var(--mainColor);z-index:500;border:2px solid var(--mainColor);border-radius:5px;height:250px;overflow:scroll;& li{padding:.3em .5em;border-radius:5px;display:grid;font-size:16px;font-weight:400;&:hover{background-color:var(--lightGreen);cursor:pointer;}}"]);
+
+/**
+ * Select component
+ * @param {number} defaultData - Default data to display
+ * @param {function} sendData - Handler for change in selected value
+ * @param {String} dataSource - Source of select data
+ * @param {object} customStyle - Object for adding custom styling to the component
+ * @returns 
+ */
 function Select(_ref) {
   var defaultData = _ref.defaultData,
     sendData = _ref.sendData,
