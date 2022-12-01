@@ -2,7 +2,7 @@
   "name": "hrnet-datepicker",
   "author": "dorianfanet",
   "description": "Reusable React date picker",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "keywords": [
     "react",
     "datepicker",

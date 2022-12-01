@@ -71,7 +71,12 @@ function DatePicker(_ref) {
     function getDaysOfMonth() {
       var tempMonthArray = [];
       var firstDay = new Date(year, month).getDay();
-      var lastDay = 7 - new Date(year, month + 1).getDay();
+      var lastDay;
+      if (new Date(year, month + 1).getDay() === 0) {
+        lastDay = 0;
+      } else {
+        lastDay = 7 - new Date(year, month + 1).getDay();
+      }
       for (var i = -firstDay + 1; i <= getNumberOfDays() + lastDay; i++) {
         var day = new Date(year, month, i);
         var otherMonth = false;

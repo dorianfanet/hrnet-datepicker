@@ -208,7 +208,12 @@ export default function DatePicker({ label, name, onChange }) {
     function getDaysOfMonth() { 
       const tempMonthArray = []
       const firstDay = new Date(year, month).getDay()
-      const lastDay = 7 - new Date(year, month + 1).getDay()
+      let lastDay;
+      if(new Date(year, month + 1).getDay() === 0){
+        lastDay = 0
+      } else {
+        lastDay = 7 - new Date(year, month + 1).getDay()
+      }
   
       for(let i = -firstDay + 1; i <= getNumberOfDays() + lastDay; i++){
         const day = new Date(year, month, i)
